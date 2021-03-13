@@ -145,6 +145,11 @@
 #########################################################################################
 
 import sys, argparse, datetime
+try:
+	import numpy as np	# for dealing with missing data when plotting
+except:
+	sys.exit("Error: The Python module numpy wasn't found, please install numpy and run again. You can use pip: 'pip install numpy'")
+
 from itertools import islice	# for the sliding window function
 def main():
 	# Defining the arguments:
@@ -1021,7 +1026,7 @@ def main():
 			if len(new) > 0:
 				ave.append(mean(new))	# uses the mean function above...
 			else:
-				ave.append('NA')
+				ave.append(np.nan)
 		return ave
 	#
 	#	
@@ -1033,7 +1038,7 @@ def main():
 			if len(new) > 0:
 				med.append(median(new))	# uses the median function above...
 			else:
-				med.append('NA')
+				med.append(np.nan)
 		return med
 	#		
 	#
@@ -1988,7 +1993,7 @@ def main():
 			plt.ylabel('Sum of pairs score', fontsize=10)
 			plt.xlabel('Alignment position', fontsize=10)
 			plt.legend(fontsize=8)
-			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_sum_of_pairs_" + sub_matrix + "_" + str(gap_pen) + ".pdf", bbox_inches='tight')
+			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_sum_of_pairs_' + sub_matrix + '_' + str(gap_pen) + '.pdf', bbox_inches='tight')
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate sum of pairs plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
 		# norm_sum_of_pairs_score:
@@ -2003,7 +2008,7 @@ def main():
 			plt.ylabel('Normalized sum of pairs score', fontsize=10)
 			plt.xlabel('Alignment position', fontsize=10)
 			plt.legend(fontsize=8)
-			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_norm_sum_of_pairs_" + sub_matrix + "_" + str(gap_pen) + ".pdf", bbox_inches='tight')
+			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_norm_sum_of_pairs_' + sub_matrix + '_' + str(gap_pen) + '.pdf', bbox_inches='tight')
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate normalized sum of pairs plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
 		# Hydrophobicity:
@@ -2039,7 +2044,7 @@ def main():
 				count = count + 1
 			#
 			axs[0].set_title('Hydrophobicity plot for ' + str(args.fasta_msa_file).rsplit('.',1)[0],fontsize=12)
-			fig.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_Hydrophobicity_plot.pdf", bbox_inches='tight')	
+			fig.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_Hydrophobicity_plot.pdf', bbox_inches='tight')	
 			fig.clear()
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate Hydrophobicity plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
@@ -2058,7 +2063,7 @@ def main():
 			plt.ylabel('Sliding window median sum of pairs score', fontsize=10)
 			plt.xlabel('Sliding window', fontsize=10)
 			plt.legend(fontsize=8)
-			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_sliding_window_median_sum_of_pairs_" + sub_matrix + "_" + str(gap_pen) + ".pdf", bbox_inches='tight')
+			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_sliding_window_median_sum_of_pairs_' + sub_matrix + '_' + str(gap_pen) + '.pdf', bbox_inches='tight')
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate sliding window median sum of pairs plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
 		#
@@ -2074,7 +2079,7 @@ def main():
 			plt.ylabel('Sliding window average sum of pairs score', fontsize=10)
 			plt.xlabel('Sliding window', fontsize=10)
 			plt.legend(fontsize=8)
-			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_sliding_window_average_sum_of_pairs_" + sub_matrix + "_" + str(gap_pen) + ".pdf", bbox_inches='tight')
+			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_sliding_window_average_sum_of_pairs_' + sub_matrix + '_' + str(gap_pen) + '.pdf', bbox_inches='tight')
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate sliding window average sum of pairs plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
 		#
@@ -2090,7 +2095,7 @@ def main():
 			plt.ylabel('Sliding window median normalized sum of pairs score', fontsize=10)
 			plt.xlabel('Sliding window', fontsize=10)
 			plt.legend(fontsize=8)
-			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_sliding_window_median_norm_sum_of_pairs_" + sub_matrix + "_" + str(gap_pen) + ".pdf", bbox_inches='tight')
+			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_sliding_window_median_norm_sum_of_pairs_' + sub_matrix + '_' + str(gap_pen) + '.pdf', bbox_inches='tight')
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate sliding window median normalized sum of pairs plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
 		#
@@ -2106,7 +2111,7 @@ def main():
 			plt.ylabel('Sliding window average normalized sum of pairs score', fontsize=10)
 			plt.xlabel('Sliding window', fontsize=10)
 			plt.legend(fontsize=8)
-			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_sliding_window_average_norm_sum_of_pairs_" + sub_matrix + "_" + str(gap_pen) + ".pdf", bbox_inches='tight')
+			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_sliding_window_average_norm_sum_of_pairs_' + sub_matrix + '_' + str(gap_pen) + '.pdf', bbox_inches='tight')
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate sliding window average normalized sum of pairs plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
 		#
@@ -2123,7 +2128,7 @@ def main():
 			plt.ylabel('Median sliding window ' + hydropho_scale.replace('_',' '), fontsize=10)
 			plt.xlabel('Sliding window', fontsize=10)
 			plt.legend(fontsize=8)
-			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_sliding_window_median_hydrophobicity_" + sub_matrix + "_" + str(gap_pen) + ".pdf", bbox_inches='tight')
+			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_sliding_window_median_hydrophobicity_' + sub_matrix + '_' + str(gap_pen) + '.pdf', bbox_inches='tight')
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate sliding window median hydrophobicity plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
 		#
@@ -2139,14 +2144,14 @@ def main():
 			plt.ylabel('Average sliding window ' + hydropho_scale.replace('_',' '), fontsize=10)
 			plt.xlabel('Sliding window', fontsize=10)
 			plt.legend(fontsize=8)
-			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + "_sliding_window_average_hydrophobicity_" + sub_matrix + "_" + str(gap_pen) + ".pdf", bbox_inches='tight')
+			f.savefig(str(args.fasta_msa_file).rsplit('.',1)[0] + '_sliding_window_average_hydrophobicity_' + sub_matrix + '_' + str(gap_pen) + '.pdf', bbox_inches='tight')
 		except:
 			print("Couldn't import matplotlib, therefore, couldn't generate sliding window average hydrophobicity plot figures. If you wish output plots, please install matplotlib first: e.g. by typing in your terminal 'pip install matplotlib==2.0.2'. Another posibility - you may want to try exacuting the script using 'pythonw tgaa.py' instead of 'python tgaa.py'")
 	#
 	#
 	#
 	## Save results:
-	with open(str(args.output), 'w') as outFile:
+	with open(str(args.output.rsplit('.',1)[0] + '_conserved_diverging_sites.' + str(args.output).rsplit('.',1)[1]), 'w') as outFile:
 		outFile.write('\n'.join(criteria_satisfied_aa_res) + '\n')
 	with open(str(args.output).rsplit('.',1)[0] + '_all_aa.' + str(args.output).rsplit('.',1)[1], 'w') as outFile:
 		outFile.write('\n'.join(all_aa_res) + '\n')
