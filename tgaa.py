@@ -2153,8 +2153,8 @@ def main():
 	## Save results:
 	with open(str(args.output.rsplit('.',1)[0] + '_conserved_diverging_sites.' + str(args.output).rsplit('.',1)[1]), 'w') as outFile:
 		outFile.write('\n'.join(criteria_satisfied_aa_res) + '\n')
-	with open(str(args.output).rsplit('.',1)[0] + '_all_aa.' + str(args.output).rsplit('.',1)[1], 'w') as outFile:
-		outFile.write('\n'.join(all_aa_res) + '\n')
+	#with open(str(args.output).rsplit('.',1)[0] + '_all_aa.' + str(args.output).rsplit('.',1)[1], 'w') as outFile:
+	#	outFile.write('\n'.join(all_aa_res) + '\n')
 	with open(str(args.output).rsplit('.',1)[0] + '_all_aa_all_info.' + str(args.output).rsplit('.',1)[1], 'w') as outFile:
 		outFile.write('\n'.join(all_aa_all_res) + '\n')
 	with open(str(args.output).rsplit('.',1)[0] + '_sliding_window.' + str(args.output).rsplit('.',1)[1], 'w') as outFile:
