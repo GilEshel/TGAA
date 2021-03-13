@@ -4,7 +4,8 @@ A Python program to analyze multiple sequence alignment and compare amino acid p
 Key assumptions:
 1. Alignment file is in a fasta format.
 2. Each sequence header contains the species name (I use a short species label, e.g. Aratha, instead of Arabidopsis_thaliana), followed by a '#' symbol and a sequence id (e.g. '>Aratha#AT5G28770')
-\n*If you give short species labels instead of full species names, you can provide (using the '-s' option) a file like Example_files/species_labels_names.txt with the full species name per short species label - for the outputs... 
+
+*If you give short species labels instead of full species names, you can provide (using the '-s' option) a file like Example_files/species_labels_names.txt with the full species name per short species label - for the outputs... 
 3. You define two groups of species using a species groups file (e.g. Example_files/species_groups_file.txt)
 
 The program will analyze the alignment file, given the two defined groups and will:
