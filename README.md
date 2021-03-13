@@ -10,7 +10,7 @@ Key assumptions:
 
 The program will analyze the alignment file, given the two defined groups and will:
 1. Calculate the sum of pairs alignment scores and hydrophobicity per group, between-groups and for both groups - per site
-2. Calculate the sum of pairs alignment scores and hydrophobicity per group, between-groups and for both groups - using sliding window (average or median of 10 sites, by default) - use the '-sw' option to set sliding window size.
+2. Calculate the sum of pairs alignment scores and hydrophobicity per group, between-groups and for both groups - per sliding window (average or median of 10 sites, by default) - use the '-sw' option to set sliding window size.
 3. Will compare the amino acid composition and properties (e.g. physico-chemical) within and between groups, to find sites that diverged between the two groups (and are conserved within groups).
 
 
