@@ -127,7 +127,7 @@
 ###	                        tgaa.py '
 ###	  -a, --output-all-aa-grouping-file
 ###	                        Flag to output a file with all possible aa grouping
-###	                        classifications, tp indicate if substitutions within
+###	                        classifications, to indicate if substitutions within
 ###	                        and between groups have a potential effect of
 ###	                        structure/function. It will output the following:
 ###	                        Taylor (using Taylor 1986 classification), Murphy
@@ -164,7 +164,7 @@ def main():
 	parser.add_argument("-s","--species-labels-names-file", help="[optional] A two-column file containing the list of species labels (column 1), and their species full name (column 2). If provided, the full names will be used to describe the species, instead of the species labels. Expecting no column headers. e.g. sp1\\tArabidopsis thaliana\\nsp2\\tAnastatica hierochuntica\\n. These species labels should be added to the sequence identifiers, followed by '#', e.g. Aratha#AT5G49450 for an Arabidopsis gene")
 	parser.add_argument("-sd","--species-labels-names-delimiter",help="Indicate the delimiter of the species labels to full names file [e.g ' ', ',', '\\t'. Also 't', 'w', 'c' will work]. Default is '\\t')", default="\t")
 	parser.add_argument("-p","--plot",action='store_true',help="Flag to plot sum of pairs and hydrophobicity plots. If the --plot flag is indicated, various graphs will be plotted. It requires that the python matplotlib library will be perinstalled, and that this script will be exacuted using 'pythonw tgaa.py ' instead of 'python tgaa.py'")
-	parser.add_argument("-a","--output-all-aa-grouping-file", action='store_true', help="Flag to output a file with all possible aa grouping classifications, tp indicate if substitutions within and between groups have a potential effect of structure/function. It will output the following: Taylor (using Taylor 1986 classification), Murphy (using Murphy 2000, 10 letter reduced alphabet), Katzir (using Katzir 2006, 7 groups), Grantham (using Grantham 1974, physico-chemical distance matrix, d>=100 indicate radical substitution), Zhang (using Zhang 2000, charge classification, polarity classification and polarity and volumn classification), and Betts and Russell (2003), to catch substitution of amino acids that doesn't substitute particularly well with any other amino acids.")
+	parser.add_argument("-a","--output-all-aa-grouping-file", action='store_true', help="Flag to output a file with all possible aa grouping classifications, to indicate if substitutions within and between groups have a potential effect of structure/function. It will output the following: Taylor (using Taylor 1986 classification), Murphy (using Murphy 2000, 10 letter reduced alphabet), Katzir (using Katzir 2006, 7 groups), Grantham (using Grantham 1974, physico-chemical distance matrix, d>=100 indicate radical substitution), Zhang (using Zhang 2000, charge classification, polarity classification and polarity and volumn classification), and Betts and Russell (2003), to catch substitution of amino acids that doesn't substitute particularly well with any other amino acids.")
 	if len(sys.argv[1:])==0:
 		#parser.print_help()
 		parser.print_usage() # for just the usage line
