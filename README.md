@@ -1,4 +1,4 @@
-# TGAA
+# TGAA (Two-Group Amino Acid comparison)
 A Python program to analyze multiple sequence alignment and compare amino acid properties between two groups of species
 
 Key assumptions:
